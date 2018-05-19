@@ -1,0 +1,232 @@
+@mixin flex-box {
+  // display: -webkit-box;
+  -webkit-box-flex: 1;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  -webkit-box-orient: vertical;
+}
+
+body,
+html {
+  font: 14px Helvetica, Arial;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: -webkit-box;
+  .left-box,
+  .min,
+  .right-box {
+    @include flex-box;
+  }
+  .left-box,
+  .right-box {
+    width: 200px;
+    height: 100vh;
+    text-align: center;
+    ul {
+      padding: 0;
+    }
+    h2 {
+      padding: 10px 0;
+    }
+    li {
+      list-style: none;
+      padding-bottom: 4px;
+    }
+  }
+  .left-box {
+    border-right: 1px solid #8c8c8c;
+  }
+  .right-box {
+    border-left: 1px solid #8c8c8c;
+  }
+}
+.min {
+  width: 80%;
+  position: relative;
+  padding: 20px 0 70px 0;
+  .name-list {
+    text-align: center;
+    max-height: 100px;
+    position: relative;
+    overflow-y: auto;
+    p {
+      margin: 5px 0;
+    }
+    p.leave {
+      color: #999;
+    }
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100px;
+      position: absolute;
+      // background: linear-gradient(#fff, transparent);
+      left: 0;
+      top: 0;
+    }
+  }
+  .speech {
+    float: left;
+    min-width: 20px;
+    min-height: 16px;
+    margin: 10px 0;
+    padding: 8px;
+    table-layout: fixed;
+    word-break: break-all;
+    position: relative;
+    // background: -webkit-gradient( linear, 50% 0%, 50% 100%, from(#ffffff), color-stop(0.1, #ececec), color-stop(0.5, #dbdbdb), color-stop(0.9, #dcdcdc), to(#8c8c8c));
+    border: 1px solid #989898;
+    border-radius: 8px;
+  }
+  .speech:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 15px;
+    top: -20px;
+    border: 10px solid;
+    // border-color: transparent transparent #989898 transparent;
+  }
+  .speech:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 17px;
+    top: -16px;
+    border: 8px solid;
+    // border-color: transparent transparent #ffffff transparent;
+  }
+  .speech.right {
+    display: inline-block;
+    box-shadow: -2px 2px 5px #CCC;
+    margin-right: 10px;
+    max-width: 75%;
+    float: right;
+    // background: -webkit-gradient( linear, 50% 0%, 50% 100%, from(#e4ffa7), color-stop(0.1, #bced50), color-stop(0.4, #aed943), color-stop(0.8, #a7d143), to(#99BF40));
+  }
+  .speech.right:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 9px;
+    bottom: auto;
+    left: auto;
+    right: -10px;
+    border-width: 9px 0 9px 10px;
+    border-color: transparent #989898;
+  }
+  .speech.right:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 10px;
+    bottom: auto;
+    left: auto;
+    right: -8px;
+    border-width: 8px 0 8px 9px;
+    border-color: transparent #fff;
+  }
+  .left {
+    display: inline-block;
+    box-shadow: 2px 2px 2px #CCCCCC;
+    margin-left: 10px;
+    max-width: 75%;
+    position: relative;
+    // background: -webkit-gradient( linear, 50% 0%, 50% 100%, from(#ffffff), color-stop(0.1, #eae8e8), color-stop(0.4, #E3E3E3), color-stop(0.8, #DFDFDF), to(#D9D9D9));
+  }
+  .left:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 9px;
+    bottom: auto;
+    left: -10px;
+    border-width: 9px 10px 9px 0;
+    border-color: transparent #989898;
+  }
+  .left:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 10px;
+    bottom: auto;
+    left: -8px;
+    border-width: 8px 9px 8px 0;
+    border-color: transparent #fff;
+  }
+  .leftd {
+    clear: both;
+    float: left;
+    margin-left: 10px;
+    .name {
+      text-align: left;
+      padding-left: 10px;
+    }
+  }
+  .rightd {
+    clear: both;
+    float: right;
+    margin-right: 10px;
+    .name {
+      text-align: right;
+      padding-right: 10px;
+    }
+  }
+  .leftd_h {
+    width: 39px;
+    height: 39px;
+    border-radius: 100%;
+    display: block;
+    float: left;
+    overflow: hidden;
+  }
+  .rightd_h {
+    width: 39px;
+    height: 39px;
+    border-radius: 100%;
+    display: block;
+    float: right;
+    overflow: hidden;
+  }
+}
+
+form {
+  background: #000;
+  padding: 3px;
+  position: absolute;
+  border-radius: 10px;
+  bottom: 20px;
+  width: 90%;
+  display: -webkit-box;
+  margin: 0 5%;
+  input,
+  button {
+    display: -webkit-box;
+    @include flex-box;
+    border-radius: 10px;
+  }
+  input {
+    border: 0;
+    padding: 10px;
+    width: 80%;
+    margin-right: .5%;
+    border-bottom-right-radius: 0;
+  }
+  button {
+    background: rgb(130, 224, 255);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-top-left-radius: 0;
+  }
+}
